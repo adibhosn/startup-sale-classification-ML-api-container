@@ -23,7 +23,7 @@ Para realizar a interface gráfica foi criada uma aplicação web que utiliza Fl
 
 2. Entre no diretório do projeto:
     
-    cd PROJETOFINALLAPES
+    cd Future-Launch
 
 3. Construa e inicie os containers com Docker Compose:
     
