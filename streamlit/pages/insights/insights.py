@@ -12,7 +12,7 @@ def insights():
     st.markdown("_Levando em conta todas as startups_")
 
     # Requisição para obter a taxa de sucesso por categoria e estado
-    requisicao = requests.get('http://flask_api:5000/taxa-sucesso')
+    requisicao = requests.get('http://flask_api:5003/taxa-sucesso')
     if requisicao.status_code == 200:
         data = requisicao.json()
         chance_venda(data)
@@ -23,7 +23,7 @@ def insights():
     st.subheader('Verificação de variáveis levando em conta apenas startups que foram vendidas ✅')
 
     # Chama a API para obter os dados
-    resposta = requests.get('http://flask_api:5000/media_por_feature')
+    resposta = requests.get('http://flask_api:5003/media_por_feature')
 
     if resposta.status_code == 200:
         data1 = resposta.json()
