@@ -27,7 +27,7 @@ def previsao_personalizada():
       além de exibir o resultado para o usuário.'''
     
     #definindo url da requisição
-    requisicao = 'http://flask_api:5000/previsao_personalizada'
+    requisicao = 'http://flask_api:5003/previsao_personalizada'
 
     exibir_texto()
     
