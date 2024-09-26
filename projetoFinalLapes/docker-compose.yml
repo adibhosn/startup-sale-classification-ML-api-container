@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    container_name: flask_api
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./api:/app
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./streamlit
+      dockerfile: dockerfile
+    container_name: streamlit_frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./streamlit:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
