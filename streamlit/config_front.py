@@ -1,6 +1,6 @@
 # Definindo listas de estados e categorias para previsão
-ESTADOS_previsao = ['MA', 'TX', 'CA', 'NY', 'otherstate']
-CATEGORIAS_previsao = ['software', 'web', 'mobile', 'enterprise', 'advertising',
+ESTADOS = ['MA', 'TX', 'CA', 'NY', 'otherstate']
+CATEGORIAS = ['software', 'web', 'mobile', 'enterprise', 'advertising',
               'gamesvideo', 'ecommerce', 'biotech', 'consulting', 'othercategory']
 
 

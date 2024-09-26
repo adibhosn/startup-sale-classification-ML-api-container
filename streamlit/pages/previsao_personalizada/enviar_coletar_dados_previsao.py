@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from config_front import ESTADOS_previsao, CATEGORIAS_previsao
+from config_front import ESTADOS, CATEGORIAS
 
 def coletar_dados():
 
@@ -8,8 +8,8 @@ def coletar_dados():
 
     # Coleta as escolhas do usuário feitas no Streamlit.
     st.markdown('#### Escolha o Estado e a Categoria da Startup:')
-    estado = st.selectbox('Estado', ESTADOS_previsao)
-    categoria = st.selectbox('Categoria', CATEGORIAS_previsao)
+    estado = st.selectbox('Estado', ESTADOS)
+    categoria = st.selectbox('Categoria', CATEGORIAS)
 
     st.markdown('#### Insira os Valores das Outras Features:')
     relationships = st.number_input('Relações', min_value=0)

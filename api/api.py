@@ -69,30 +69,29 @@ def prever():
 
     return jsonify({"previsao": int(previsao[0])})
 
-# Rota para obter insights sobre a taxa de sucesso
-@app.route('/taxa-sucesso', methods=['GET'])
-def taxa_sucesso():
+# Rota para obter insights sobre numeros de vendas
+@app.route('/soma_vendas', methods=['GET'])
+def soma_vendas():
 
-    # Calculando a taxa de sucesso por categoria
-    taxa_sucesso_categoria = {}
+    # Calculando as qntd de vendas por categoria sem levar em conta o percentual
+    soma_vendas_categoria = {}
     for col in CATEGORIAS:
-        sucesso = data[data['status'] == 1][col].sum()
-        total = data[col].sum()
-        if total > 0:
-            taxa_sucesso_categoria[col] = sucesso / total
+        qntd_vendas = data[data['status'] == 1][col].sum()
+        # Convertendo valores para tipos nativos do Python
+        soma_vendas_categoria[col] = int(qntd_vendas)
 
-    # Calculando a taxa de sucesso por estado
-    taxa_sucesso_estado = {}
+    # Calculando as qntd de vendas por estado sem levar em conta o percentual
+    soma_vendas_estado = {}
     for col in ESTADOS:
-        sucesso = data[data['status'] == 1][col].sum()
-        total = data[col].sum()
-        if total > 0:
-            taxa_sucesso_estado[col] = sucesso / total
+        qntd_vendas = data[data['status'] == 1][col].sum()
+        # Convertendo valores para tipos nativos do Python
+        soma_vendas_estado[col] = int(qntd_vendas)
 
     return jsonify({
-        'taxa_sucesso_categoria': taxa_sucesso_categoria,
-        'taxa_sucesso_estado': taxa_sucesso_estado,
+        'soma_vendas_categoria': soma_vendas_categoria,
+        'soma_vendas_estado': soma_vendas_estado,
     })
+
 
 
 @app.route('/media_por_feature', methods=['GET'])
@@ -101,17 +100,15 @@ def media_features():
     colunas_binarias = [col for col in data.columns if data[col].nunique() == 2]
     colunas_naobinarias = [col for col in data.columns if data[col].nunique() > 2]
 
-    # Filtro de startups vendidas (status == 1)
-    startups_vendidas = data[data['status'] == 1]
 
     # Cálculo das médias das colunas não-binárias
-    media_features_nao_binarias = startups_vendidas[colunas_naobinarias].mean().round(2).to_dict()
+    media_features_nao_binarias = data[colunas_naobinarias].mean().round(2).to_dict()
 
     # Cálculo da quantidade de 0s e 1s para as colunas binárias
     distrib_features_binarias = {}
     for col in colunas_binarias:
-        zeros = (startups_vendidas[col] == 0).sum()
-        uns = (startups_vendidas[col] == 1).sum()
+        zeros = (data[col] == 0).sum()
+        uns = (data[col] == 1).sum()
         
         # Adiciona ao dicionário apenas se houver 0s ou 1s
         distrib_features_binarias[col] = {
@@ -127,4 +124,4 @@ def media_features():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
