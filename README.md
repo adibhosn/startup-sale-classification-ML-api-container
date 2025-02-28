@@ -1,36 +1,38 @@
-# Future-Launch
- Previsão de Venda de Startups usando Machine Learn
+# Future-Launch  
+**Startup Sale Prediction using Machine Learning**  
 
-# Esse projeto foi feito com base em um processo seletivo de um grupo de estudos chamado LAPES 
-(disponivel em: https://github.com/lapes-engenharia-de-software/.github/blob/main/profile/ps-lapes-2024.md)
+This project was developed based on a selection process for a study group called **LAPES**  
+(available at: [LAPES GitHub](https://github.com/lapes-engenharia-de-software/.github/blob/main/profile/ps-lapes-2024.md))  
 
-Este projeto utiliza um conjunto de dados sobre startups para prever se uma startup será adquirida ou não. O objetivo principal é analisar os fatores que influenciam o sucesso de uma startup e construir um modelo de Machine Learning que possa prever esse sucesso com base em características específicas.
-Para realizar a interface gráfica foi criada uma aplicação web que utiliza Flask como backend (API) e Streamlit como frontend. O projeto permite visualizar insights através de gráficos e realizar previsões personalizadas, tudo orquestrado com Docker.
+This project uses a dataset of startups to predict whether a startup will be acquired or not. The main goal is to analyze the factors that influence a startup’s success and build a Machine Learning model capable of predicting this success based on specific characteristics.  
 
-## Estrutura do Projeto
+To create a graphical interface, a web application was developed using **Flask** as the backend (API) and **Streamlit** as the frontend. The project allows users to visualize insights through graphs and make personalized predictions, all orchestrated with **Docker**.  
 
-- **api/**: Arquivos relacionados à API Flask.
-- **streamlit/**: Código relacionado ao front-end com Streamlit.
-- **docker-compose.yml**: Arquivo para orquestração dos containers Docker.
-- **requirements.txt**: Dependências do projeto.
-- **Dockerfile**: Arquivo de build da imagem Docker.
+## Project Structure  
 
-## Como Rodar o Projeto
+- **api/**: Files related to the Flask API.  
+- **streamlit/**: Code related to the front-end with Streamlit.  
+- **docker-compose.yml**: File for Docker container orchestration.  
+- **requirements.txt**: Project dependencies.  
+- **Dockerfile**: File to build the Docker image.  
 
-1. Clone o repositório:
-   
+## How to Run the Project  
+
+### 1. Clone the repository:     
+   ```bash
    git clone https://github.com/Adibhosn/Future-Launch.git
+   ```
+### 2. Navigate to the project directory:
+```bash
+ cd Future-Launch
+```
+### 3. Build and start the containers using Docker Compose:
+```bash
+docker-compose up --build
+```
+### 4. Access the applications:
+```bash
+http://localhost:8501/
+```
 
-2. Entre no diretório do projeto:
-    
-    cd Future-Launch
 
-3. Construa e inicie os containers com Docker Compose:
-    
-    docker-compose up --build
-
-4. Acesse as aplicações:
-
-    http://localhost:8501
-
-Se precisar de mais ajustes ou tiver dúvidas sobre alguma parte específica, estou à disposição!
