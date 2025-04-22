@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 from imblearn.over_sampling import SMOTE
-from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 from sklearn.feature_selection import SelectKBest, f_classif
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
@@ -27,7 +27,7 @@ X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, te
 # Pipeline de treinamento
 pipeline = Pipeline([
     ('selecao_de_features', SelectKBest(f_classif, k=2)),
-    ('classificador', LogisticRegression())
+    ('classificador', GaussianNB())
 ])
 
 # Treinando o modelo
